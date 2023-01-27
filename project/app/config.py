@@ -3,13 +3,16 @@
 
 import logging
 from functools import lru_cache
+
 from pydantic import BaseSettings
 
-log = logging.getLogger('uvicorn')
+log = logging.getLogger("uvicorn")
+
 
 class Settings(BaseSettings):
     """Application settings"""
-    environment: str = 'dev'
+
+    environment: str = "dev"
     testing: bool = False
 
     FERNET_KEY: str
@@ -19,10 +22,12 @@ class Settings(BaseSettings):
 
     class Config:
         """environment variables to read from"""
+
         env_file = "app/.env"
+
 
 @lru_cache()
 def get_settings() -> BaseSettings:
     """Returns application settings"""
-    log.info('Loading config settings from the environment...')
+    log.info("Loading config settings from the environment...")
     return Settings()
