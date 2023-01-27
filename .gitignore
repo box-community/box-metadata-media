@@ -109,6 +109,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.jwt.config.json
 
 # Spyder project settings
 .spyderproject

@@ -1,14 +1,14 @@
 # project/app/main.py
 
-from fastapi import FastAPI, Depends
+import os
+from fastapi import FastAPI
+from app.api import info
 
-from app.config import get_settings
+def create_application() -> FastAPI:
+    application = FastAPI()
+    application.include_router(info.router)
+    return application
 
-app = FastAPI()
+app = create_application()
 
 
-@app.get("/info")
-async def get_server_info(settings = Depends(get_settings)):
-    """Returns current service info and settings"""
-    # TODO: Scrub sensitive settings
-    return settings.dict()
