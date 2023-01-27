@@ -77,7 +77,11 @@ jobs:
       - name: Create .jwt.config.json
         run: docker exec box-metadata sh -c 'echo "${{ secrets.CONFIG_JSON }}" | base64 -d > app/.jwt.config.json'
       - name: Create .env
-        run: docker exec box-metadata sh -c 'echo "${{ secrets.ENV }}" | base64 -d -o app/.env'
+        run: docker exec box-metadata sh -c 'echo "${{ secrets.ENV }}" | base64 -d > app/.env'
+      - name: debug .env
+        run: docker exec box-metadata sh -c 'cat app/.env'
+      - name: debug .jwt.config.json
+        run: docker exec box-metadata sh -c 'cat app/.jwt.config.json'
       - name: Pytest
         run: docker exec box-metadata python -m pytest .
       - name: Flake8
