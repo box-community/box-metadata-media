@@ -66,6 +66,8 @@ jobs:
             -e TESTING=1 \
             -p 5003:8765 \
             ${{ env.IMAGE }}:latest
+      - name: Debug
+        run:  pwd
       - name: Create .jwt.config.json
         run: echo ${{ secrets.CONFIG_JSON }} | base64 -d > .jwt.config.json
       - name: Create .env
