@@ -67,11 +67,11 @@ jobs:
             -p 5003:8765 \
             ${{ env.IMAGE }}:latest
       - name: Debug
-        run:  pwd
+        run:  docker exec box-metadata pwd
       - name: Create .jwt.config.json
-        run: echo ${{ secrets.CONFIG_JSON }} | base64 -d > .jwt.config.json
+        run: docker exec box-metadata echo ${{ secrets.CONFIG_JSON }} | base64 -d > app/.jwt.config.json
       - name: Create .env
-        run: echo ${{ secrets.ENV }} | base64 -d > .env
+        run: docker exec box-metadata echo ${{ secrets.ENV }} | base64 -d > app/.env
       - name: Pytest
         run: docker exec box-metadata python -m pytest .
       - name: Flake8
