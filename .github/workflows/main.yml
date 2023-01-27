@@ -67,9 +67,11 @@ jobs:
             -p 5003:8765 \
             ${{ env.IMAGE }}:latest
       - name: Debug
-        run:  docker exec box-metadata pwd
-      - name: Debug
-        run:  docker exec box-metadata ls -laF
+        run:  |
+          docker exec box-metadata pwd
+          docker exec box-metadata ls -laF
+          docker exec box-metadata whoami
+          docker exec box-metadata ls llaF app
       - name: Create .jwt.config.json
         run: docker exec box-metadata echo ${{ secrets.CONFIG_JSON }} | base64 -d > ./app/.jwt.config.json
       - name: Create .env
