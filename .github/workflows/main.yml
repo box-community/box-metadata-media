@@ -71,11 +71,11 @@ jobs:
           docker exec box-metadata pwd
           docker exec box-metadata ls -laF
           docker exec box-metadata whoami
-          docker exec box-metadata ls llaF app
+          docker exec box-metadata ls -laF app
       - name: Create .jwt.config.json
-        run: docker exec box-metadata echo ${{ secrets.CONFIG_JSON }} | base64 -d > ./app/.jwt.config.json
+        run: docker exec box-metadata echo ${{ secrets.CONFIG_JSON }} | base64 -d > app/.jwt.config.json
       - name: Create .env
-        run: docker exec box-metadata echo ${{ secrets.ENV }} | base64 -d > ./app/.env
+        run: docker exec box-metadata echo ${{ secrets.ENV }} | base64 -d > app/.env
       - name: Pytest
         run: docker exec box-metadata python -m pytest .
       - name: Flake8
