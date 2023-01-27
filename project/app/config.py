@@ -1,3 +1,4 @@
+""" application config setting """
 # project/app/config.py
 
 import logging
