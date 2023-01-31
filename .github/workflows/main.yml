@@ -63,7 +63,6 @@ jobs:
             --name box-metadata \
             -e PORT=8765 \
             -e ENVIRONMENT=dev \
-            -e TESTING=1 \
             -p 5003:8765 \
             ${{ env.IMAGE }}:latest
       - name: Create .jwt.config.json
