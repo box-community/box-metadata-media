@@ -4,3 +4,4 @@ Dockerfile
 Dockerfile.prod
 project/htmlcov/
 .coverage
+.DS_Store

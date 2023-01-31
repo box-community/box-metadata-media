@@ -12,6 +12,12 @@ def get_settings_override():
     """Override get_settings to return test settings."""
     return Settings(
         testing=True,
+        environment="dev",
+        FERNET_KEY="FERNET_KEY",
+        JWT_PATH="app/.jwt.config.json",
+        JWT_PUBLIC_KEY_ID="JWT_PUBLIC_KEY_ID",
+        JWT_EXPIRATION_SECONDS=3300,
+        MEDIA_METADATA_TEMPLATE_NAME="TEST Media Metadata",
     )
 
 

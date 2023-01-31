@@ -112,6 +112,8 @@ venv.bak/
 .jwt.config.json
 project/htmlcov
 .coverage
+project/tests/samples/*/
+.DS_Store
 
 # Spyder project settings
 .spyderproject
