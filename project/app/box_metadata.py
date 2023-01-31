@@ -1,7 +1,10 @@
 """Box metadata template functions"""
 from boxsdk import Client
-from boxsdk.object.metadata_template import (MetadataField, MetadataFieldType,
-                                             MetadataTemplate)
+from boxsdk.object.metadata_template import (
+    MetadataField,
+    MetadataFieldType,
+    MetadataTemplate,
+)
 
 
 def metadata_template_from_dict(

@@ -6,8 +6,10 @@ import os
 from fastapi import APIRouter, Depends, HTTPException
 
 from app.box_auth import jwt_check_client
-from app.box_metadata import (metadata_template_check_by_name,
-                              metadata_template_from_dict)
+from app.box_metadata import (
+    metadata_template_check_by_name,
+    metadata_template_from_dict,
+)
 from app.config import Settings, get_settings
 
 router = APIRouter()

@@ -60,6 +60,20 @@ def test_metadata_create_force(test_app, test_box_client):
     assert response.json() == {"status": "success", "data": result}
 
 
+def test_metadata_get(test_app, test_box_client):
+    """Should return the metadata template details"""
+    response = test_app.get("/metadata")
+    assert response.status_code == 200
+
+    template = metadata_template_check_by_name(
+        test_box_client, get_settings_override().MEDIA_METADATA_TEMPLATE_NAME
+    )
+    assert template is not None
+
+    result = template.response_object
+    assert response.json() == {"status": "success", "data": result}
+
+
 def test_metadata_delete(test_app, test_box_client):
     """Should delete the metadata template"""
     response = test_app.delete("/metadata")
@@ -69,5 +83,8 @@ def test_metadata_delete(test_app, test_box_client):
         test_box_client, get_settings_override().MEDIA_METADATA_TEMPLATE_NAME
     )
     assert template is None
-
     assert response.json() == {"status": "success"}
+
+    # and if we delete again then it should return a 404
+    response = test_app.delete("/metadata")
+    assert response.status_code == 404

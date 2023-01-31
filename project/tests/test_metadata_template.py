@@ -2,9 +2,11 @@
 import json
 import os
 
-from app.box_metadata import (metadata_template_check_by_name,
-                              metadata_template_delete,
-                              metadata_template_from_dict)
+from app.box_metadata import (
+    metadata_template_check_by_name,
+    metadata_template_delete,
+    metadata_template_from_dict,
+)
 from tests.conftest import get_settings_override
 
 settings = get_settings_override()
