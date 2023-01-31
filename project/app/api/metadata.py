@@ -16,7 +16,7 @@ router = APIRouter()
 
 
 @router.get("/metadata")
-async def get_metadata_details(settings: Settings = Depends(get_settings)):
+async def metadata_details(settings: Settings = Depends(get_settings)):
     """Returns the metadata configuration details"""
 
     client = jwt_check_client(settings)
@@ -28,15 +28,17 @@ async def get_metadata_details(settings: Settings = Depends(get_settings)):
     if template is None:
         raise HTTPException(
             status_code=404,
-            detail="Demo template not found, goto /metadata/create to create it",
+            detail="Demo template not found.",
         )
 
-    response = template.get()
+    response = template.response_object
     return {"status": "success", "data": response}
 
 
-@router.post("/metadata/create", status_code=201)
-async def post_metadata_create(force: bool | None = False, settings: Settings = Depends(get_settings)):
+@router.post("/metadata", status_code=201)
+async def create_metadata(
+    force: bool | None = False, settings: Settings = Depends(get_settings)
+):
     """Creates the metadata configuration details"""
 
     client = jwt_check_client(settings)
@@ -55,7 +57,9 @@ async def post_metadata_create(force: bool | None = False, settings: Settings = 
             )
 
     with open(
-        os.path.join(os.path.dirname(__file__), "../../tests/samples/json/BigBuckBunny.mp4.json"),
+        os.path.join(
+            os.path.dirname(__file__), "../../tests/samples/json/BigBuckBunny.mp4.json"
+        ),
         "r",
         encoding="utf-8",
     ) as file:
@@ -70,3 +74,24 @@ async def post_metadata_create(force: bool | None = False, settings: Settings = 
 
     result = template.response_object
     return {"status": "success", "data": result}
+
+
+@router.delete("/metadata")
+async def delete_metadata(settings: Settings = Depends(get_settings)):
+    """Deletes the metadata configuration details"""
+
+    client = jwt_check_client(settings)
+
+    template = metadata_template_check_by_name(
+        client, settings.MEDIA_METADATA_TEMPLATE_NAME
+    )
+
+    if template is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Demo template not found.",
+        )
+
+    template.delete()
+
+    return {"status": "success"}
