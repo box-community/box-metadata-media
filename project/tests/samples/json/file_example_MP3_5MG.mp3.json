@@ -1,1 +1,146 @@
-{"tracks": [{"track_type": "General", "count": "331", "count_of_stream_of_this_kind": "1", "kind_of_stream": "General", "other_kind_of_stream": ["General"], "stream_identifier": "0", "count_of_audio_streams": "1", "audio_format_list": "MPEG Audio", "audio_format_withhint_list": "MPEG Audio", "audio_codecs": "MPEG Audio", "complete_name": "/usr/src/app/tests/samples/Audio/file_example_MP3_5MG.mp3", "folder_name": "/usr/src/app/tests/samples/Audio", "file_name": "file_example_MP3_5MG.mp3", "other_file_name": ["file_example_MP3_5MG"], "file_extension": "mp3", "format": "MPEG Audio", "other_format": ["MPEG Audio"], "format_extensions_usually_used": "m1a mpa mpa1 mp1 m2a mpa2 mp2 mp3", "commercial_name": "MPEG Audio", "internet_media_type": "audio/mpeg", "file_size": 5289384, "other_file_size": ["5.04 MiB", "5 MiB", "5.0 MiB", "5.04 MiB", "5.044 MiB"], "duration": 132205, "other_duration": ["2 min 12 s", "2 min 12 s 205 ms", "2 min 12 s", "00:02:12.205", "00:02:12.205"], "overall_bit_rate_mode": "CBR", "other_overall_bit_rate_mode": ["Constant"], "overall_bit_rate": 320000, "other_overall_bit_rate": ["320 kb/s"], "stream_size": 112, "other_stream_size": ["112 Bytes (0%)", "112 Bytes", "112 Bytes", "112 Bytes", "112.0 Bytes", "112 Bytes (0%)"], "proportion_of_this_stream": "0.00002", "title": "Impact Moderato", "album": "YouTube Audio Library", "track_name": "Impact Moderato", "performer": "Kevin MacLeod", "genre": "Cinematic", "file_last_modification_date": "UTC 2023-01-30 19:57:37", "file_last_modification_date__local": "2023-01-30 19:57:37", "writing_library": "LAME3.99r", "other_writing_library": ["LAME3.99r"]}, {"track_type": "Audio", "count": "277", "count_of_stream_of_this_kind": "1", "kind_of_stream": "Audio", "other_kind_of_stream": ["Audio"], "stream_identifier": "0", "format": "MPEG Audio", "other_format": ["MPEG Audio"], "commercial_name": "MPEG Audio", "format_version": "Version 1", "format_profile": "Layer 3", "internet_media_type": "audio/mpeg", "duration": 132205, "other_duration": ["2 min 12 s", "2 min 12 s 205 ms", "2 min 12 s", "00:02:12.205", "00:02:13:07", "00:02:12.205 (00:02:13:07)"], "bit_rate_mode": "CBR", "other_bit_rate_mode": ["Constant"], "bit_rate": 320000, "other_bit_rate": ["320 kb/s"], "channel_s": 2, "other_channel_s": ["2 channels"], "samples_per_frame": "1152", "sampling_rate": 44100, "other_sampling_rate": ["44.1 kHz"], "samples_count": "5830272", "frame_rate": "38.281", "other_frame_rate": ["38.281 FPS (1152 SPF)"], "frame_count": "5061", "compression_mode": "Lossy", "other_compression_mode": ["Lossy"], "stream_size": 5288228, "other_stream_size": ["5.04 MiB (100%)", "5 MiB", "5.0 MiB", "5.04 MiB", "5.043 MiB", "5.04 MiB (100%)"], "proportion_of_this_stream": "0.99978", "writing_library": "LAME3.99r", "other_writing_library": ["LAME3.99r"], "encoding_settings": "-m s -V 4 -q 3 -lowpass 20.5"}]}
+{
+    "tracks": [
+        {
+            "track_type": "General",
+            "count": "331",
+            "count_of_stream_of_this_kind": "1",
+            "kind_of_stream": "General",
+            "other_kind_of_stream": [
+                "General"
+            ],
+            "stream_identifier": "0",
+            "count_of_audio_streams": "1",
+            "audio_format_list": "MPEG Audio",
+            "audio_format_withhint_list": "MPEG Audio",
+            "audio_codecs": "MPEG Audio",
+            "complete_name": "/usr/src/app/tests/samples/Audio/file_example_MP3_5MG.mp3",
+            "folder_name": "/usr/src/app/tests/samples/Audio",
+            "file_name": "file_example_MP3_5MG.mp3",
+            "other_file_name": [
+                "file_example_MP3_5MG"
+            ],
+            "file_extension": "mp3",
+            "format": "MPEG Audio",
+            "other_format": [
+                "MPEG Audio"
+            ],
+            "format_extensions_usually_used": "m1a mpa mpa1 mp1 m2a mpa2 mp2 mp3",
+            "commercial_name": "MPEG Audio",
+            "internet_media_type": "audio/mpeg",
+            "file_size": 5289384,
+            "other_file_size": [
+                "5.04 MiB",
+                "5 MiB",
+                "5.0 MiB",
+                "5.04 MiB",
+                "5.044 MiB"
+            ],
+            "duration": 132205,
+            "other_duration": [
+                "2 min 12 s",
+                "2 min 12 s 205 ms",
+                "2 min 12 s",
+                "00:02:12.205",
+                "00:02:12.205"
+            ],
+            "overall_bit_rate_mode": "CBR",
+            "other_overall_bit_rate_mode": [
+                "Constant"
+            ],
+            "overall_bit_rate": 320000,
+            "other_overall_bit_rate": [
+                "320 kb/s"
+            ],
+            "stream_size": 112,
+            "other_stream_size": [
+                "112 Bytes (0%)",
+                "112 Bytes",
+                "112 Bytes",
+                "112 Bytes",
+                "112.0 Bytes",
+                "112 Bytes (0%)"
+            ],
+            "proportion_of_this_stream": "0.00002",
+            "title": "Impact Moderato",
+            "album": "YouTube Audio Library",
+            "track_name": "Impact Moderato",
+            "performer": "Kevin MacLeod",
+            "genre": "Cinematic",
+            "file_last_modification_date": "UTC 2023-01-30 19:57:37",
+            "file_last_modification_date__local": "2023-01-30 19:57:37",
+            "writing_library": "LAME3.99r",
+            "other_writing_library": [
+                "LAME3.99r"
+            ]
+        },
+        {
+            "track_type": "Audio",
+            "count": "277",
+            "count_of_stream_of_this_kind": "1",
+            "kind_of_stream": "Audio",
+            "other_kind_of_stream": [
+                "Audio"
+            ],
+            "stream_identifier": "0",
+            "format": "MPEG Audio",
+            "other_format": [
+                "MPEG Audio"
+            ],
+            "commercial_name": "MPEG Audio",
+            "format_version": "Version 1",
+            "format_profile": "Layer 3",
+            "internet_media_type": "audio/mpeg",
+            "duration": 132205,
+            "other_duration": [
+                "2 min 12 s",
+                "2 min 12 s 205 ms",
+                "2 min 12 s",
+                "00:02:12.205",
+                "00:02:13:07",
+                "00:02:12.205 (00:02:13:07)"
+            ],
+            "bit_rate_mode": "CBR",
+            "other_bit_rate_mode": [
+                "Constant"
+            ],
+            "bit_rate": 320000,
+            "other_bit_rate": [
+                "320 kb/s"
+            ],
+            "channel_s": 2,
+            "other_channel_s": [
+                "2 channels"
+            ],
+            "samples_per_frame": "1152",
+            "sampling_rate": 44100,
+            "other_sampling_rate": [
+                "44.1 kHz"
+            ],
+            "samples_count": "5830272",
+            "frame_rate": "38.281",
+            "other_frame_rate": [
+                "38.281 FPS (1152 SPF)"
+            ],
+            "frame_count": "5061",
+            "compression_mode": "Lossy",
+            "other_compression_mode": [
+                "Lossy"
+            ],
+            "stream_size": 5288228,
+            "other_stream_size": [
+                "5.04 MiB (100%)",
+                "5 MiB",
+                "5.0 MiB",
+                "5.04 MiB",
+                "5.043 MiB",
+                "5.04 MiB (100%)"
+            ],
+            "proportion_of_this_stream": "0.99978",
+            "writing_library": "LAME3.99r",
+            "other_writing_library": [
+                "LAME3.99r"
+            ],
+            "encoding_settings": "-m s -V 4 -q 3 -lowpass 20.5"
+        }
+    ]
+}
