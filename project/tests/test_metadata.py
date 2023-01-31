@@ -14,9 +14,7 @@ def test_metadata(test_app, test_box_client):
     )
     if template is None:
         assert response.status_code == 404
-        assert response.json() == {
-            "detail": "Demo template not found."
-        }
+        assert response.json() == {"detail": "Demo template not found."}
     else:
         assert response.status_code == 200
 
