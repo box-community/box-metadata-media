@@ -1,10 +1,7 @@
-from typing import List
-from boxsdk.object.metadata_template import MetadataTemplate
-from boxsdk.object.metadata_template import MetadataField, MetadataFieldType
+"""Box metadata template functions"""
 from boxsdk import Client
-
-from app.config import Settings
-from app.box_auth import jwt_check_client
+from boxsdk.object.metadata_template import (MetadataField, MetadataFieldType,
+                                             MetadataTemplate)
 
 
 def metadata_template_from_dict(
@@ -22,11 +19,7 @@ def metadata_template_from_dict(
         print(f"item: {key}")
         fields.append(MetadataField(MetadataFieldType.STRING, key))
 
-    template = client.create_metadata_template(
-        name,
-        fields,
-        hidden=False
-    )
+    template = client.create_metadata_template(name, fields, hidden=False)
 
     return template
 

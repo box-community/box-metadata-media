@@ -4,6 +4,7 @@
 import pytest
 from starlette.testclient import TestClient
 
+from app.box_auth import jwt_check_client
 from app.config import Settings, get_settings
 from app.main import create_application
 
@@ -31,5 +32,17 @@ def test_app():
 
         # testing
         yield test_client
+
+    # tear down
+
+
+@pytest.fixture(scope="module")
+def test_box_client():
+    """Create test box client fixture for the tests."""
+    # set up
+    client = jwt_check_client(get_settings_override())
+
+    # testing
+    yield client
 
     # tear down

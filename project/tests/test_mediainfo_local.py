@@ -1,10 +1,9 @@
 """ test medi info and pymedia info loacally """
-
-import os
-import pathlib
 import json
-from pymediainfo import MediaInfo
+import os
+
 import pytest
+from pymediainfo import MediaInfo
 
 
 def test_should_return_mediainfo():
@@ -22,7 +21,6 @@ def test_should_return_mediainfo():
 
     media_info_jason = json.dumps(media_info.to_json())
     assert media_info_jason is not None
-   
 
 
 def test_json_extract_all_files():
@@ -32,7 +30,7 @@ def test_json_extract_all_files():
     # Arrange
     root_dir = os.path.join(os.path.dirname(__file__), "samples/media/")
     # Act
-    for root, dirs, files in os.walk(root_dir):
+    for root, __, files in os.walk(root_dir):
         for file in files:
             file_path = os.path.join(root, file)
             json_file_path = file_path + ".json"

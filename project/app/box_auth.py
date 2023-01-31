@@ -28,8 +28,7 @@ def jwt_client(auth: JWTAuth) -> Client:
 
 
 def jwt_check_client(settings: Settings) -> Client:
-    """ Get a Client object for the JWT app user"""
+    """Get a Client object for the JWT app user"""
     auth = jwt_auth(settings)
     client = jwt_client(auth)
     return client
-

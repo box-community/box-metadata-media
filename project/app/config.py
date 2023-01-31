@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     JWT_PATH: str = "app/.jwt.config.json"
     JWT_PUBLIC_KEY_ID: str = "JWT_PUBLIC_KEY_ID"
     JWT_EXPIRATION_SECONDS: int = 3300
-    MEDIA_METADATA_TEMPLATE_NAME: str = 'Demo Media Metadata'
+    MEDIA_METADATA_TEMPLATE_NAME: str = "Demo Media Metadata"
 
     class Config:
         """environment variables to read from"""
