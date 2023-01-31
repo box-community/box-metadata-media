@@ -3,8 +3,7 @@
 
 from fastapi import FastAPI
 
-from app.api import info
-from app.api import metadata
+from app.api import info, metadata
 
 
 def create_application() -> FastAPI:

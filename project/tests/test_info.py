@@ -2,7 +2,6 @@
 # project/tests/test_info.py
 
 from tests.conftest import get_settings_override
-from app.config import get_settings
 
 
 def test_info_tests_config(test_app):
