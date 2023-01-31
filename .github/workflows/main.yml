@@ -77,4 +77,4 @@ jobs:
       - name: Black
         run: docker exec box-metadata python -m black . --check
       - name: isort
-        run: docker exec box-metadata python -m isort . --check-only
+        run: docker exec box-metadata python -m isort . --profile=black --line-length=72
