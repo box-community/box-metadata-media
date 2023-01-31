@@ -4,6 +4,7 @@ import os
 import pathlib
 import json
 from pymediainfo import MediaInfo
+import pytest
 
 
 def test_should_return_mediainfo():
@@ -12,6 +13,8 @@ def test_should_return_mediainfo():
     file_path = os.path.join(
         os.path.dirname(__file__), "samples/Video/BigBuckBunny.mp4"
     )
+    if not os.path.exists(file_path):
+        pytest.skip("sample file not found")
     # Act
     media_info = MediaInfo.parse(file_path)
     # Assert
@@ -39,6 +42,8 @@ def test_json_extract_all_files():
             file_path = os.path.join(root, file)
             json_file_path = file_path + ".json"
             if os.path.splitext(file_path)[1] == ".json":
+                continue
+            if os.path.splitext(file_path)[1] == ".md":
                 continue
             if os.path.exists(json_file_path):
                 if os.path.getmtime(json_file_path) > os.path.getmtime(file_path):
