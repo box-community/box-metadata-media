@@ -41,7 +41,7 @@ def test_metadata_template_list():
 def test_metadata_template_from_json():
     """should create a metadata template from a json file"""
     with open(
-        os.path.join(os.path.dirname(__file__), "samples/Video/BigBuckBunny.mp4.json"),
+        os.path.join(os.path.dirname(__file__), "samples/json/BigBuckBunny.mp4.json"),
         "r",
         encoding="utf-8",
     ) as file:
