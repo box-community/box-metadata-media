@@ -15,7 +15,7 @@ def metadata_template_from_dict(
     # check if template exists
     template = metadata_template_check_by_name(client, name)
     if template is not None:
-        raise Exception(f"Metadata template {name} already exists")
+        raise ValueError(f"Metadata template {name} already exists")
 
     fields = []
     for key, __ in track_dict:
@@ -40,5 +40,6 @@ def metadata_template_check_by_name(client: Client, name: str) -> MetadataTempla
 def metadata_template_delete(client: Client, name: str) -> None:
     """delete a metadata template"""
     template = metadata_template_check_by_name(client, name)
-    if template is not None:
-        template.delete()
+    if template is None:
+        raise ValueError(f"Metadata template {name} does not exist")
+    template.delete()

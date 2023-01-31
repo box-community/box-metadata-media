@@ -35,6 +35,19 @@ def test_app():
 
     # tear down
 
+@pytest.fixture(scope="module")
+def test_app_real_settings():
+    """Create test application fixture for the tests."""
+    # set up
+    app = create_application()
+    # app.dependency_overrides[get_settings] = get_settings_override
+    with TestClient(app) as test_client:
+
+        # testing
+        yield test_client
+
+    # tear down
+
 
 @pytest.fixture(scope="module")
 def test_box_client():

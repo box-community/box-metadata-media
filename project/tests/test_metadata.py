@@ -5,6 +5,7 @@ import os
 from app.box_metadata import (
     metadata_template_delete,
     metadata_template_from_dict,
+    metadata_template_check_by_name
 )
 from tests.conftest import get_settings_override
 
@@ -37,8 +38,28 @@ def test_metadata_template_from_json(test_box_client):
     track_generic = bunny_dict["tracks"][0].items()
     track_name = "TEST Media Track " + bunny_dict["tracks"][0]["track_type"]
 
-    metadata_template_delete(test_box_client, track_name)
+    template = metadata_template_check_by_name(test_box_client, track_name)
+
+    if template is not None:
+        metadata_template_delete(test_box_client, track_name)
 
     template = metadata_template_from_dict(test_box_client, track_name, track_generic)
 
     assert template is not None
+
+    # should raise an exception if trying to create a template that already exists
+    try:
+        metadata_template_from_dict(test_box_client, track_name, track_generic)
+        assert False
+    except ValueError as error:
+        assert error is not None
+
+    # try to delete a teamplate that does not exist
+    try:
+        metadata_template_delete(test_box_client, "Non Existent Template")
+        assert False
+    except ValueError as error:
+        assert error is not None
+
+    # delete and existing template
+    metadata_template_delete(test_box_client, track_name)
