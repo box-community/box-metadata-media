@@ -19,7 +19,7 @@ def metadata_template_from_dict(
 
     fields = []
     for key, __ in track_dict:
-        print(f"item: {key}")
+        # print(f"item: {key}")
         fields.append(MetadataField(MetadataFieldType.STRING, key))
 
     template = client.create_metadata_template(name, fields, hidden=False)
