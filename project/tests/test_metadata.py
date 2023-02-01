@@ -1,7 +1,7 @@
 """Tests for the /metadata endpoint."""
 # project/tests/test_metadata.py
 
-from app.box_metadata import metadata_template_check_by_name
+from app.box_metadata_template import metadata_template_check_by_name
 from tests.conftest import get_settings_override
 
 

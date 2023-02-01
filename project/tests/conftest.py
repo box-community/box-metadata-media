@@ -1,6 +1,7 @@
 """Pytest configuration file."""
 # project/tests/conftest.py
-
+import os
+import json
 import pytest
 from starlette.testclient import TestClient
 
@@ -19,6 +20,9 @@ def get_settings_override():
         JWT_PUBLIC_KEY_ID="JWT_PUBLIC_KEY_ID",
         JWT_EXPIRATION_SECONDS=3300,
         MEDIA_METADATA_TEMPLATE_NAME="TEST Media Metadata",
+        MEDIA_FOLDER_ID="191494027812",
+        MEDIA_FOLDER_USER_ID="18622116055",
+        MEDIA_FILE_ID="1121082178302",
     )
 
 
@@ -28,6 +32,23 @@ def test_app():
     # set up
     app = create_application()
     app.dependency_overrides[get_settings] = get_settings_override
+    with TestClient(app) as test_client:
+
+        # testing
+        yield test_client
+
+    # tear down
+
+
+@pytest.fixture(scope="module")
+def test_app_with_template():
+    """Create test application fixture for the tests."""
+    # set up
+    app = create_application()
+    app.dependency_overrides[get_settings] = get_settings_override
+
+    # create a test template
+
     with TestClient(app) as test_client:
 
         # testing

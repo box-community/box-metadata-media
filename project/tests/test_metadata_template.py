@@ -2,7 +2,7 @@
 import json
 import os
 
-from app.box_metadata import (
+from app.box_metadata_template import (
     metadata_template_check_by_name,
     metadata_template_delete,
     metadata_template_from_dict,
