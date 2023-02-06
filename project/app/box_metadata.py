@@ -1,7 +1,7 @@
 """ Handle metadata fecthing and processing for box files"""
 import os
 
-from boxsdk import BoxAPIException, Client
+from boxsdk import Client
 from boxsdk.object.file import File
 from boxsdk.object.metadata import Metadata
 from pymediainfo import MediaInfo

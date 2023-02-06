@@ -1,7 +1,5 @@
 """Pytest configuration file."""
 # project/tests/conftest.py
-import json
-import os
 
 import pytest
 from starlette.testclient import TestClient
