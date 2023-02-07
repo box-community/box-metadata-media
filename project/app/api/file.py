@@ -14,29 +14,30 @@ router = APIRouter()
 
 
 @router.post("/file/{file_id}", status_code=201)
-async def box_file_metadata_set(
+async def set_file_metadata(
     file_id: str,
     settings: Settings = Depends(get_settings),
 ):
-    """processes file and fills in the metadata with the MediaFile info"""
+    """Process file and fill in the metadata info"""
 
-    await box_file_metadata_set_with_user(file_id, None, settings)
+    await set_file_metadata_as_user(file_id, None, settings)
 
 
-@router.post("/file/{file_id}/{user_id}", status_code=201)
-async def box_file_metadata_set_with_user(
+@router.post("/file/{file_id}/{as_user_id}", status_code=201)
+async def set_file_metadata_as_user(
     file_id: str,
-    user_id: str | None = None,
+    as_user_id: str | None = None,
     settings: Settings = Depends(get_settings),
 ):
-    """processes file and fills in the metadata with the MediaFile info"""
+    """Process media file and fill in the metadata info using 'as-user'
+    security context"""
     client = jwt_check_client(settings)
 
     exec_start = time.perf_counter()
 
     try:
         metadata = file_metadata_set(
-            client, file_id, user_id, settings.MEDIA_METADATA_TEMPLATE_NAME
+            client, file_id, as_user_id, settings.MEDIA_METADATA_TEMPLATE_NAME
         )
     except BoxAPIException as error:
         raise HTTPException(
@@ -47,4 +48,8 @@ async def box_file_metadata_set_with_user(
     exec_end = time.perf_counter()
     exec_time = exec_end - exec_start
 
-    return {"status": "success", "data": metadata, "executed_in": exec_time}
+    return {
+        "status": "success",
+        "executed_in_seconds": exec_time,
+        "data": metadata,
+    }

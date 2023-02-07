@@ -114,6 +114,7 @@ project/htmlcov
 .coverage
 project/tests/samples/media/
 .DS_Store
+project/tmp/*
 
 # Spyder project settings
 .spyderproject

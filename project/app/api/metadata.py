@@ -16,8 +16,8 @@ router = APIRouter()
 
 
 @router.get("/metadata")
-async def metadata_details(settings: Settings = Depends(get_settings)):
-    """Returns the metadata configuration details"""
+async def metadata_template_details(settings: Settings = Depends(get_settings)):
+    """Returns this service metadata template details"""
 
     client = jwt_check_client(settings)
 
@@ -28,7 +28,7 @@ async def metadata_details(settings: Settings = Depends(get_settings)):
     if template is None:
         raise HTTPException(
             status_code=404,
-            detail="Demo template not found.",
+            detail="Service template not found.",
         )
 
     response = template.response_object
@@ -36,10 +36,10 @@ async def metadata_details(settings: Settings = Depends(get_settings)):
 
 
 @router.post("/metadata", status_code=201)
-async def create_metadata(
+async def create_metadata_template(
     force: bool | None = False, settings: Settings = Depends(get_settings)
 ):
-    """Creates the metadata configuration details"""
+    """Creates the metadata template for use in this service"""
 
     client = jwt_check_client(settings)
 
@@ -77,8 +77,9 @@ async def create_metadata(
 
 
 @router.delete("/metadata")
-async def delete_metadata(settings: Settings = Depends(get_settings)):
-    """Deletes the metadata configuration details"""
+async def delete_metadata_template(settings: Settings = Depends(get_settings)):
+    """Deletes the metadata template in user by this servoce.
+    This can not be undone, and will remove all metadata of this template from all files"""
 
     client = jwt_check_client(settings)
 

@@ -9,7 +9,7 @@ router = APIRouter()
 
 
 @router.get("/info")
-async def get_server_info(settings: Settings = Depends(get_settings)):
+async def get_service_info(settings: Settings = Depends(get_settings)):
     """Returns current service info and settings"""
 
     settings_out = settings.dict()
