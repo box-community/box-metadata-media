@@ -1,4 +1,4 @@
-""" test medi info and pymedia info loacally """
+""" test media info and pymedia info lib """
 import json
 import os
 

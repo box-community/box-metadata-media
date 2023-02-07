@@ -5,6 +5,7 @@ import pytest
 from starlette.testclient import TestClient
 
 from app.box_auth import jwt_check_client
+from app.box_client import get_box_client
 from app.config import Settings, get_settings
 from app.main import create_application
 
@@ -22,6 +23,7 @@ def get_settings_override():
         MEDIA_FOLDER_ID="191494027812",
         MEDIA_FOLDER_USER_ID="18622116055",
         MEDIA_FILE_ID="1121082178302",
+        SMALL_MEDIA_FILE_ID="1127033309244",
     )
 
 
@@ -71,10 +73,23 @@ def test_app_real_settings():
 
 
 @pytest.fixture(scope="module")
-def test_box_client():
+def box_client():
     """Create test box client fixture for the tests."""
     # set up
     client = jwt_check_client(get_settings_override())
+
+    # testing
+    yield client
+
+    # tear down
+
+
+@pytest.fixture(scope="module")
+def box_client_user():
+    """Create test box client fixture for the tests impersonating the user."""
+    # set up
+    settings = get_settings_override()
+    client = get_box_client(settings, settings.MEDIA_FOLDER_USER_ID)
 
     # testing
     yield client

@@ -1,14 +1,14 @@
 """ metadata entry points """
 # project/app/api/metadata.py
-import json
-import os
 
 from fastapi import APIRouter, Depends, HTTPException
 
 from app.box_auth import jwt_check_client
+from app.box_client import get_box_client
 from app.box_metadata_template import (
-    metadata_template_check_by_name,
-    metadata_template_from_dict,
+    create_metadata_template_from_dict,
+    get_metadata_template_by_name,
+    get_sample_dictionary,
 )
 from app.config import Settings, get_settings
 
@@ -21,7 +21,7 @@ async def metadata_template_details(settings: Settings = Depends(get_settings)):
 
     client = jwt_check_client(settings)
 
-    template = metadata_template_check_by_name(
+    template = get_metadata_template_by_name(
         client, settings.MEDIA_METADATA_TEMPLATE_NAME
     )
 
@@ -41,9 +41,9 @@ async def create_metadata_template(
 ):
     """Creates the metadata template for use in this service"""
 
-    client = jwt_check_client(settings)
+    client = get_box_client(settings)
 
-    template = metadata_template_check_by_name(
+    template = get_metadata_template_by_name(
         client, settings.MEDIA_METADATA_TEMPLATE_NAME
     )
 
@@ -53,24 +53,14 @@ async def create_metadata_template(
         else:
             raise HTTPException(
                 status_code=400,
-                detail="Demo template already exists.",
+                detail="Service template already exists.",
             )
 
-    with open(
-        os.path.join(
-            os.path.dirname(__file__), "../../tests/samples/json/BigBuckBunny.mp4.json"
-        ),
-        "r",
-        encoding="utf-8",
-    ) as file:
-        bunny_dict = json.load(file)
+    media_info = get_sample_dictionary()
 
-    client = jwt_check_client(settings)
-
-    track_generic = bunny_dict["tracks"][0].items()
-    track_name = settings.MEDIA_METADATA_TEMPLATE_NAME
-
-    template = metadata_template_from_dict(client, track_name, track_generic)
+    template = create_metadata_template_from_dict(
+        client, settings.MEDIA_METADATA_TEMPLATE_NAME, media_info
+    )
 
     result = template.response_object
     return {"status": "success", "data": result}
@@ -83,14 +73,14 @@ async def delete_metadata_template(settings: Settings = Depends(get_settings)):
 
     client = jwt_check_client(settings)
 
-    template = metadata_template_check_by_name(
+    template = get_metadata_template_by_name(
         client, settings.MEDIA_METADATA_TEMPLATE_NAME
     )
 
     if template is None:
         raise HTTPException(
             status_code=404,
-            detail="Demo template not found.",
+            detail="Service template not found.",
         )
 
     template.delete()

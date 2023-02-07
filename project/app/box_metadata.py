@@ -1,51 +1,23 @@
 """ Handle metadata fecthing and processing for box files"""
 import os
 
-from boxsdk import Client
 from boxsdk.object.file import File
 from boxsdk.object.metadata import Metadata
-from pymediainfo import MediaInfo
-
-from app.box_metadata_template import metadata_template_check_by_name
-
-
-def get_file_url_by_id(client: Client, file_id: str) -> str:
-    """get the file by id"""
-
-    download_url = client.file(file_id).get_download_url()
-    return download_url
-
-
-def get_file_by_id(client: Client, file_id: str) -> File:
-    """get the file by id"""
-
-    file = client.file(file_id)
-    return file
+from boxsdk.object.metadata_template import MetadataTemplate
 
 
 def file_metadata_set(
-    client: Client, file_id: str, user_id: str | None, template_name: str
+    file: File,
+    template: MetadataTemplate,
+    media_info: dict,
 ) -> Metadata:
     """update the file metadata"""
 
-    # check if we need to switch user context
-    if user_id is not None:
-        user = client.user(user_id)
-        client = client.as_user(user)
-
-    file = get_file_by_id(client, file_id)
-    download_url = get_file_url_by_id(client, file_id)
-
-    media_info = MediaInfo.parse(download_url)
-    track_general = media_info.general_tracks[0]
-    metadata_media = track_general.to_data()
-
-    template = metadata_template_check_by_name(client, template_name)
     template_fields = template["fields"]
 
     metadata_mapped = {}
     for field in template_fields:
-        metadata_mapped[field["key"]] = metadata_media.get(field["displayName"])
+        metadata_mapped[field["key"]] = media_info.get(field["displayName"])
 
     # convert values from list to strings
     for key, value in metadata_mapped.items():
@@ -61,7 +33,6 @@ def file_metadata_set(
             metadata_mapped[key] = str(value)
 
     # adjust some values directly from file
-    file = file.get()
     metadata_mapped["fileName"] = file.name
     metadata_mapped["fileExtension"] = os.path.splitext(file.name)[1]
 
