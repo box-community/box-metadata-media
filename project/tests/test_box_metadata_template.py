@@ -1,12 +1,11 @@
 """ Test the metadata module """
-import os
 
 from app.box_metadata_template import (
     create_metadata_template_from_dict,
     delete_metadata_template,
     get_metadata_template_by_name,
+    get_sample_dictionary,
 )
-from app.media_info import get_media_info_by_file_path
 from tests.conftest import get_settings_override
 
 settings = get_settings_override()
@@ -33,9 +32,7 @@ def test_metadata_template_list(box_client):
 def test_metadata_template_from_json(box_client):
     """should create a metadata template from a json file"""
 
-    media_info = get_media_info_by_file_path(
-        os.path.join(os.path.dirname(__file__), "samples/json/BigBuckBunny.mp4.json")
-    )
+    media_info = get_sample_dictionary()
     template_name = "TEST Media Track " + media_info["track_type"]
 
     template = get_metadata_template_by_name(box_client, template_name)
