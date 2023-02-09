@@ -1,12 +1,12 @@
 {
     "boxAppSettings": {
-      "clientID": "8194by7znxnakklcim0c5xkc7cgoi235",
-      "clientSecret": "CmoLY9AAectnDkwLp5xhocJ0Knje8kDT",
+      "clientID": "clientID",
+      "clientSecret": "clientSecret",
       "appAuth": {
-        "publicKeyID": "nztcgflw",
-        "privateKey": "-----BEGIN ENCRYPTED PRIVATE KEY-----\nMIIFDjBABgkqhkiG9w0BBQ0wMzAbBgkqhkiG9w0BBQwwDgQIE7c2e4t3f0ICAggA\nMBQGCCqGSIb3DQMHBAhBuyU0fVOaSgSCBMghHM9GPfj5BHbz/2wGqhZs5M5p/Lqs\nAVl3QyGksufzyPr3prHdiZpIKQBcj/2v/2YrhFWC5VEz1y4cag473FOTuzeppYhW\n+ze1Gm2OgGOZLK8XUjfrZTgKznjgtVedS9/foZo1uZ0B1WDdqjdtqNwd6MBTQeQh\nFJ32UE+8r43vue6kFcDk4jgEZNxksieHojaxc/rrraWPNynsuUcpwJBeuHtf7LUw\nuAKTZq4rdGUtRh6LKK2CX+6/s5oSlu6d5a7EoBAcgUTq6Gxe6P7MNd6+CwXQ4Bpj\nBZ8OIwNGsJcI0G3aJQxz8VR/EDftC3VnoN6T0R6v2zLDIycWHB/iaj85J8gr++Em\nubUMQOdu8I8+kfH8fDLeV5MZC4Wxbs+E3ZmlCuTKOOEi42x+aGdMtAN4dTNBsmSC\nTWAY8TDnkIu1njnjyHLVxQt16dER7OVPARPN1/rcYaKVhwnyseqPYShJ2ZvDGdXa\nr1mylsOJs8pwwkNsopf0r/3thugb8HVzrTdbQhX8Ikt0Z35gaQ7xbwizJtotIiTb\nyWLhQI9QNzV7XptXRhMEuY03PseTGpR4y47eR1oYsTyvf9dSnWtKj3zSn3WJed57\nCyin/52fpyuURrCO78N9SAYDGedDpaDwX7mPGA8GCH+i25TSCSKJtbWiIs45hbZA\njfhFGhNI68AVPAZvQhzruPvXufCrjh0JtnFcft8T5MG/ZgTM1LF02w824FCLz+Xe\nvByigG7Ij8ZGgXcyve511FxFO0mkXR7IWQywvFsaKDBoN/vJyKUHZg8ceuuead9+\nIJKBqtXdu5ZuBLBtFovmyQuysQbcoWLlPn/AvX6FOt6GEjl45sTo83YgIRbJEGni\nY4rolvXkmIqmHhM+D4bieBf7GSYlqVCeH/6CQnqhtirLttT4cM1IrSs1zKBZC/IG\nsQD8Y4xd+7CKZ3GoF1OZaOANyOiDnfoIHbj2i5/1ebpCB9oDo/nyko6ES2bNZB39\nau5jp7AzizH6/cCXgIPP6Tl82fSgHPdA3DI9fVt4OlrtHIHptRm2Mm8Iu6GRApCS\nCyPatWsDfIRXrc8PXxBQ6WC4J77FMm/h0XOh5qdWI61ziBxQOv0EQbRncbj/2+vk\n+eyL3cFmwXGk7z0nPx83/AYusnGAjRz4bYk+8I/CeQz9YCAHDmhehoJ/EbUqtswK\no85NdSVfMZt+CBGposGUWzugCxHlwCTqlYPgM8JIoPU3PjJgb50am6L5OjGClB5W\n2PVacXN40q4280HST87lL+tSB0pt66m5p2bQnB9yvJKujVWASzteunL+AkYIkhJv\nArv788aDHlDdmOA65vhgjusiMM13rfF5XUZPuUcTFgzkt95l0DRGy1cxUf4biKki\nKrsSlB1tyz0ec2s4usjiqVBb4O4JywoqZkh80vCSkAofy/ZsmQWnUD0Oo/WY88OX\n9JAS05zanXuoEhAyxiRj8drGh0UDZzsMmwheWaaiwnHCxdgEr7UyIhru90vm5XQc\nRl+aMRiiXgiWxEvjnjhHo4XI5UmoxCd2PC3f323uRtcHhTi6aL0ZaTOst+/Gow4w\n+kY2vO7EFJk006BXer31mzqRu5hTsBPA+Dyc4h2vsN5lsjPh5sryTNcY6No9eJD3\nbVk=\n-----END ENCRYPTED PRIVATE KEY-----\n",
-        "passphrase": "73851c391a023615ceea7531d34fff55"
+        "publicKeyID": "publicKeyID",
+        "privateKey": "-----BEGIN ENCRYPTED PRIVATE KEY-----\n\n-----END ENCRYPTED PRIVATE KEY-----\n",
+        "passphrase": "passphrase"
       }
     },
-    "enterpriseID": "877840855"
+    "enterpriseID": "enterpriseID"
   }
