@@ -3,7 +3,7 @@
 
 from fastapi import FastAPI
 
-from app.api import file, info, metadata
+from app.api import file, folder, info, metadata
 
 
 def create_application() -> FastAPI:
@@ -12,6 +12,7 @@ def create_application() -> FastAPI:
     application.include_router(info.router)
     application.include_router(metadata.router)
     application.include_router(file.router)
+    application.include_router(folder.router)
     return application
 
 

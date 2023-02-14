@@ -27,13 +27,14 @@ def file_metadata_set(
     # remove none values
     metadata_mapped = {k: v for k, v in metadata_mapped.items() if v is not None}
 
-    # convert integers to strings
-    for key, value in metadata_mapped.items():
-        if isinstance(value, int):
-            metadata_mapped[key] = str(value)
+    # # convert integers to strings
+    # for key, value in metadata_mapped.items():
+    #     if isinstance(value, int):
+    #         metadata_mapped[key] = str(value)
 
     # adjust some values directly from file
     metadata_mapped["fileName"] = file.name
+    metadata_mapped["otherFileName"] = file.name
     metadata_mapped["fileExtension"] = os.path.splitext(file.name)[1]
 
     # convert dict values into string

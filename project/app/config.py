@@ -24,6 +24,9 @@ class Settings(BaseSettings):
     MEDIA_FOLDER_USER_ID: str = "MEDIA_FOLDER_USER_ID"
     MEDIA_FILE_ID: str = "MEDIA_FILE_ID"
     SMALL_MEDIA_FILE_ID: str = "SMALL_MEDIA_FILE_ID"
+    AUDIO_FOLDER_ID: str = "AUDIO_FOLDER_ID"
+    IMAGE_FOLDER_ID: str = "IMAGE_FOLDER_ID"
+    VIDEO_FOLDER_ID: str = "VIDEO_FOLDER_ID"
 
     class Config:
         """environment variables to read from"""

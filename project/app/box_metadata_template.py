@@ -38,7 +38,11 @@ def create_metadata_template_from_dict(
 
     fields = []
     for key in media_info:
-        fields.append(MetadataField(MetadataFieldType.STRING, key))
+        value = media_info[key]
+        if isinstance(value, int):
+            fields.append(MetadataField(MetadataFieldType.FLOAT, key))
+        else:
+            fields.append(MetadataField(MetadataFieldType.STRING, key))
 
     template = client.create_metadata_template(name, fields, hidden=False)
 

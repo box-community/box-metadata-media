@@ -33,3 +33,16 @@ def download_file_to_path(
 
     with open(file_path, "wb") as file_object:
         file.download_to(file_object)
+
+
+def get_files_by_folder_id(client: Client, folder_id: str) -> list[File]:
+    """Returns the box files in a folder"""
+
+    folder = client.folder(folder_id=folder_id).get()
+    items = folder.get_items()
+    files = []
+    for item in items:
+        if item.type == "file":
+            files.append(item.get())
+
+    return files
